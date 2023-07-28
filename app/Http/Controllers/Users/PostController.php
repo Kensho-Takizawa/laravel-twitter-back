@@ -18,7 +18,6 @@ class PostController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-//        return response()->json($user);
         return UserResource::make($user);
     }
 }
