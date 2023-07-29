@@ -1,9 +1,7 @@
 <?php
 
-namespace Tests\Feature\Users;
+namespace Tests\Feature\Users\User\Tweets;
 
-
-use App\Models\User;
 use Faker\Generator;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -31,17 +29,14 @@ class PostControllerTest extends TestCase
 
     public function testInvoke(): void
     {
-        $this->post('/api/users',  [
-                'email' => 'user3@example.com',
-                'password' => 'password',
-                'name' => 'user3',
-            ])
+        $this->post('/api/users/1/tweets', [
+            'content' => 'テストの投稿です。',
+        ])
             ->assertStatus(201)
             ->assertSimilarJson([
                 'data' => [
-                    'id' => 51,
-                    'email' => 'user3@example.com',
-                    'name' => 'user3',
+                    'id' => 251,
+                    'content' => 'テストの投稿です。',
                 ],
             ]);
     }

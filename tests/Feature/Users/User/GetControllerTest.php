@@ -1,15 +1,13 @@
 <?php
 
-namespace Tests\Feature\Users;
+namespace Tests\Feature\Users\User;
 
-
-use App\Models\User;
 use Faker\Generator;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class PostControllerTest extends TestCase
+class GetControllerTest extends TestCase
 {
     use DatabaseMigrations;
     use WithFaker;
@@ -31,17 +29,13 @@ class PostControllerTest extends TestCase
 
     public function testInvoke(): void
     {
-        $this->post('/api/users',  [
-                'email' => 'user3@example.com',
-                'password' => 'password',
-                'name' => 'user3',
-            ])
-            ->assertStatus(201)
+        $this->get('/api/users/1')
+            ->assertStatus(200)
             ->assertSimilarJson([
                 'data' => [
-                    'id' => 51,
-                    'email' => 'user3@example.com',
-                    'name' => 'user3',
+                    'id' => 1,
+                    'email' => 'ydeckow@example.com',
+                    'name' => 'Brock Parker',
                 ],
             ]);
     }
