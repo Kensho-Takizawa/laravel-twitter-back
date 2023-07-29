@@ -24,3 +24,4 @@ Route::post('/users', [PostController::class, '__invoke']);
 Route::get('/users', [GetController::class, '__invoke']);
 Route::get('/users/{user}', [\App\Http\Controllers\Users\User\GetController::class, '__invoke']);
 Route::post('users/{user}/tweets', [\App\Http\Controllers\Users\User\Tweets\PostController::class, '__invoke']);
+Route::get('users/{user}/tweets', [\App\Http\Controllers\Users\User\Tweets\GetController::class, '__invoke']);
