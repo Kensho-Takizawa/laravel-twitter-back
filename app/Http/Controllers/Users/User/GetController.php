@@ -15,5 +15,4 @@ class GetController extends Controller
             ->response()
             ->setStatusCode(StatusCode::OK);
     }
-
 }
